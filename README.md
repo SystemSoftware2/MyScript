@@ -29,14 +29,14 @@ body
 end
 
 If you enter this:
-```
+````
 x := 5 ;
 while x < 10 do
 if x == 7 then
 x := 8 ;
 end
 end
-``
+```
 then you will get an error.
 ## Condition if-else
 This project supports if-else condition.
@@ -56,7 +56,7 @@ body
 end
 
 Example:
-```
+````
 x := 5 ;
 if x < 10 then
 x := x + 1 ;
@@ -64,7 +64,7 @@ end
 else
 x := 5 ;
 end
-``
+```
 # Conclusion
 I created my own programming language :-)
 Goodbay!
