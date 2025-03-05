@@ -12,7 +12,7 @@ except:
         os.system('clear')
     import keyboard
 
-def parse(tokens, enf={}, env={}):
+def parse(tokens, env={}):
     pos = 0
 
     while pos < len(tokens):
@@ -101,32 +101,6 @@ def parse(tokens, enf={}, env={}):
                         sys.stderr.write('SyntaxError: Operator "end" not found\n')
                     else:
                         sys.stderr.write('Error: '+str(err)+'\n')
-            elif token[0] == 'new':
-                try:
-                    pos += 1
-                    name = tokens[pos][0]
-                    code = ''
-                    pos += 1
-                    
-                    while tokens[pos] != ('end', 'reserved'):
-                        code += tokens[pos][0] + '\n'
-                        pos += 1
-
-                    enf[name] = code
-                except Exception as err:
-                    if not ('end', 'reserved') in tokens:
-                        sys.stderr.write('SyntaxError: Operator "end" not found\n')
-                    else:
-                        sys.stderr.write('Error: '+str(err)+'\n')
-            elif token[0] == 'start':
-                try:
-                    pos += 1
-                    name = tokens[pos][0]
-                    parse(lex(enf[name]))
-                except KeyError:
-                    sys.stderr.write('Function '+name+' not found\n')
-                except Exception as err:
-                    sys.stderr.write('Error: '+str(err)+'\n')
         pos += 1
     return env
         
