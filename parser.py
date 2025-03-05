@@ -1,3 +1,7 @@
+#Copyright (c) 2025 System
+#This file parses tokens
+
+#Import modules
 import sys
 from lexer import *
 import os
@@ -12,6 +16,7 @@ except:
         os.system('clear')
     import keyboard
 
+#Parses tokens
 def parse(tokens, env={}):
     pos = 0
 
@@ -33,8 +38,7 @@ def parse(tokens, env={}):
                             value += tokens[pos][0] + ' '
                         pos += 1
 
-                    env[name] = eval(value, globals())
-                    globals()[name] = eval(value, globals())
+                    env[name] = eval(value, env)
                 except Exception as err:
                     if not (';', 'reserved') in tokens:
                         sys.stderr.write('SyntaxError: Symbol ";" not found\n')
@@ -54,7 +58,7 @@ def parse(tokens, env={}):
                         code += tokens[pos][0] + '\n'
                         pos += 1
 
-                    condtrue = eval(condition, globals())
+                    condtrue = eval(condition, env)
 
                     if condtrue == True:
                         parse(lex(code))
@@ -90,7 +94,7 @@ def parse(tokens, env={}):
                         code += tokens[pos][0] + '\n'
                         pos += 1
 
-                    while eval(condition, globals()):
+                    while eval(condition, env):
                         parse(lex(code))
                         if keyboard.is_pressed('e') or keyboard.is_pressed('E'):
                             break
