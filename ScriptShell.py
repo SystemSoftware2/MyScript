@@ -1,3 +1,6 @@
+#Copyright (c) 2025 System
+#This is shell
+
 from lexer import *
 from parser import *
 from datetime import *
