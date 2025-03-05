@@ -20,8 +20,6 @@ keywords = [
     ('==', RESERVED),
     ('!=', RESERVED),
     (';', RESERVED),
-    ('new', RESERVED),
-    ('start', RESERVED),
     ('else', RESERVED)
 ]
 
