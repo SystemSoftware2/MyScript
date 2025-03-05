@@ -38,7 +38,7 @@ def parse(tokens, env={}):
                             value += tokens[pos][0] + ' '
                         pos += 1
 
-                    env[name] = eval(value, env)
+                    env[name] = eval(value, {'__builtins__': env})
                 except Exception as err:
                     if not (';', 'reserved') in tokens:
                         sys.stderr.write('SyntaxError: Symbol ";" not found\n')
@@ -58,7 +58,7 @@ def parse(tokens, env={}):
                         code += tokens[pos][0] + '\n'
                         pos += 1
 
-                    condtrue = eval(condition, env)
+                    condtrue = eval(condition, {'__builtins__': env})
 
                     if condtrue == True:
                         parse(lex(code))
@@ -94,7 +94,7 @@ def parse(tokens, env={}):
                         code += tokens[pos][0] + '\n'
                         pos += 1
 
-                    while eval(condition, env):
+                    while eval(condition, {'__builtins__': env}):
                         parse(lex(code))
                         if keyboard.is_pressed('e') or keyboard.is_pressed('E'):
                             break
