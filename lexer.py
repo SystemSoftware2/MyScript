@@ -1,3 +1,6 @@
+#Copyright (c) 2025 System
+#This is lexer
+
 INT = 'int'
 FLOAT = 'float'
 ID = 'id'
