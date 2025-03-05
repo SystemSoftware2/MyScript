@@ -1,3 +1,5 @@
+#Copyright (c) 2025 System
+
 import sys
 from lexer import *
 from parser import *
