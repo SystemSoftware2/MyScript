@@ -25,7 +25,9 @@ x: 10
 Structure of the while loop:
 
 while condition do
+
 body
+
 end
 
 If you enter this:
@@ -43,16 +45,23 @@ This project supports if-else condition.
 And structure of the if-else (or if):
 
 if condition then
+
 body
+
 end
+
 else
+
 body
+
 end
 
 or:
 
 if condition then
+
 body
+
 end
 
 Example:
