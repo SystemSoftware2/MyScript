@@ -23,7 +23,8 @@ keywords = [
     ('==', RESERVED),
     ('!=', RESERVED),
     (';', RESERVED),
-    ('else', RESERVED)
+    ('else', RESERVED),
+    ('with', RESERVED)
 ]
 
 def iskeyword(value):
