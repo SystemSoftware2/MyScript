@@ -15,13 +15,6 @@ class Program:
 
     def clear(self):
         self.text = ''
-        
-    def open(self, name):
-        try:
-            with open(name, 'r', encoding='utf-8') as f:
-                self.text = f.read()
-        except:
-            sys.stderr.write('File not found\n')
 
     def programtext(self):
         lines = self.text.split('\n')
