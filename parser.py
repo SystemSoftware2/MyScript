@@ -105,16 +105,6 @@ def parse(tokens, env={}):
                         sys.stderr.write('SyntaxError: Operator "end" not found\n')
                     else:
                         sys.stderr.write('Error: '+str(err)+'\n')
-            elif token[0] == 'with':
-                try:
-                    pos += 1
-                    name = token[0]
-                    with open(name+'.my', 'r', encoding='utf-8') as f:
-                        parse(lex(f.read()))
-                except FileNotFoundError:
-                    sys.stderr.write('File "%s" not found\n' % name)
-                except Exception as err:
-                    sys.stderr.write('Error: '+str(err)+'\n')
         pos += 1
     return env
         
